@@ -1,28 +1,46 @@
-<h1 align="center">🥐 Crumbify</h1>
+<div align="center">
 
-**Crumbify** adalah aplikasi pemesanan mandiri (*self-service*) yang dirancang khusus untuk toko pastry dan kopi. Aplikasi ini bertujuan untuk meningkatkan efisiensi transaksi di toko dengan memungkinkan pelanggan memesan dan membayar secara online, sehingga mereka tidak perlu mengantre di kasir dan hanya perlu mengambil pesanan ketika sudah siap.
+# Crumbify
+### *Elevate Your Pastry & Coffee Experience*
+
+[![Design Tool](https://img.shields.io/badge/Design-Figma-orange?style=flat-square)](https://www.figma.com/design/4PqrH3Qqg4ss16Ky46jtxc/Untitled?node-id=0-1&p=f&t=z8KLFu75xZV7lqHa-0)
+
+<p align="center">
+  <strong>Crumbify</strong> adalah aplikasi pemesanan mandiri (<i>self-service</i>) yang dirancang khusus untuk toko pastry dan kopi. Aplikasi ini meningkatkan efisiensi transaksi dengan sistem pemesanan dan pembayaran online untuk meminimalisir antrean fisik.
+</p>
+
+---
+</div>
+
+## Fitur Utama
+
+### Sisi Pelanggan (Customer)
+| Fitur | Deskripsi |
+| :--- | :--- |
+| **Autentikasi** | Sistem Login dan Register untuk keamanan data dan riwayat pesanan. |
+| **Eksplorasi Menu** | Pemilihan produk berdasarkan kategori Sweet, Salty, Coffee, dan Non-Coffee. |
+| **Live Search** | Pencarian interaktif dengan hasil yang muncul secara real-time saat mengetik. |
+| **Wishlist** | Penyimpanan produk favorit untuk mempermudah pemesanan di lain waktu. |
+| **Manajemen Keranjang** | Peninjauan item, pengaturan jumlah, dan kalkulasi total biaya sebelum checkout. |
+| **Pembayaran Digital** | Sistem pembayaran cashless via QR Code. |
+| **Riwayat Pesanan** | Akses ke daftar riwayat transaksi beserta detail item yang telah dibeli. |
+| **Notifikasi Pesanan** | Pemberitahuan langsung saat pesanan telah dikonfirmasi atau siap diambil. |
+
+### Sisi Pengelola (Admin)
+* **Manajemen Produk (CRUD)**
+    * Admin dapat menambah menu baru, mengunggah foto, serta memperbarui nama, harga, stok, dan deskripsi produk. 
+* **Monitoring Pesanan**
+    * Pemantauan data pesanan masuk secara otomatis untuk staf toko.
+* **Panggilan Pengambilan**
+    * Fitur untuk memberi tahu pelanggan bahwa pesanan telah selesai disiapkan dan sudah siap untuk diambil di area kasir.
+* **Notifikasi Operasional**
+    * Pemberitahuan setiap ada pesanan baru yang masuk agar dapat segera diproses oleh tim dapur.
+* **Informasi Akun Toko**
+    * Halaman yang menampilkan informasi akun admin yang digunakan secara bersama oleh seluruh staf operasional. 
+
 
 ---
 
-## 🚀 Fitur Utama Aplikasi
-
-Fitur dalam aplikasi ini dibagi menjadi dua sisi utama, yaitu untuk **Customer** dan **Admin**.
-
-### 👤 1. Sisi Customer (Pelanggan)
-* **Autentikasi Pengguna**: Fitur *Login* dan *Register* untuk mengamankan data serta riwayat pesanan pengguna. 🔐
-* **Eksplorasi Menu Berdasarkan Kategori**: Memudahkan pemilihan produk melalui kategori **Sweet, Salty, Coffee,** dan **Non-Coffee**. 🥐☕
-* **Live Search System**: Fitur pencarian interaktif di mana daftar produk otomatis tersaring dan muncul secara real-time saat pengguna sedang mengetik nama menu.
-* **Sistem Wishlist**: Pengguna dapat menyimpan produk yang disukai ke dalam daftar favorit untuk dipesan di lain waktu. ❤️
-* **Manajemen Keranjang (Cart)**: Fitur untuk meninjau pesanan, mengatur jumlah item, dan melihat total harga sebelum *checkout*. 🛒
-* **Pembayaran Digital (QR Code)**: Integrasi metode pembayaran *cashless* yang cepat guna menghindari antrean di kasir fisik. 💳
-* **Pelacakan Pesanan (My Order)**: Melihat kembali daftar transaksi yang pernah dilakukan beserta detail item yang dipesan. 📜
-* **Notifikasi Real-time**: Pengguna mendapatkan pemberitahuan langsung saat pesanan telah dikonfirmasi atau siap untuk diambil. 🔔
-
-### 🔐 2. Sisi Admin (Pengelola Toko)
-* **Manajemen Produk (CRUD)**: Admin dapat menambah menu baru, mengunggah foto, serta memperbarui nama, harga, stok, dan deskripsi produk. ✍️
-* **Monitoring Pesanan Masuk**: Menerima data pesanan dari customer secara otomatis untuk segera diproses. 📋
-* **Panggilan Pengambilan Pesanan**: Fitur untuk memberi tahu pelanggan bahwa pesanan telah selesai disiapkan dan sudah siap untuk diambil di area kasir. ☕✅
-* **Notifikasi Pesanan Baru**: Pemberitahuan setiap ada pesanan baru yang masuk agar dapat segera diproses oleh tim dapur. 📢
-* **Informasi Profil Admin**: Halaman yang menampilkan informasi akun admin yang digunakan secara bersama oleh seluruh staf operasional. 👤
-
----
+<div align="center">
+  <sub>Developed for optimized bakery and coffee shop operations.</sub>
+</div>
