@@ -3,7 +3,7 @@
 # Crumbify
 ### *Elevate Your Pastry & Coffee Experience*
 
-[![Design Tool](https://img.shields.io/badge/Design-Figma-orange?style=flat-square)](https://www.figma.com/design/4PqrH3Qqg4ss16Ky46jtxc/Untitled?node-id=0-1&p=f&t=z8KLFu75xZV7lqHa-0)
+[![Design Tool](https://img.shields.io/badge/Design-Figma-orange?style=flat-square)](https://www.figma.com/design/4PqrH3Qqg4ss16Ky46jtxc/Untitled?node-id=0-1&t=z8KLFu75xZV7lqHa-1)
 
 <p align="center">
   <strong>Crumbify</strong> adalah aplikasi pemesanan mandiri (<i>self-service</i>) yang dirancang khusus untuk toko pastry dan kopi. Aplikasi ini meningkatkan efisiensi transaksi dengan sistem pemesanan dan pembayaran online untuk meminimalisir antrean fisik.
