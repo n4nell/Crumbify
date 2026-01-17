@@ -1,4 +1,4 @@
-    # 🥐 Crumbify
+<h1 align="center">🥐 Crumbify</h1>
 
 **Crumbify** adalah aplikasi pemesanan mandiri (*self-service*) yang dirancang khusus untuk toko pastry dan kopi. Aplikasi ini bertujuan untuk meningkatkan efisiensi transaksi di toko dengan memungkinkan pelanggan memesan dan membayar secara online, sehingga mereka tidak perlu mengantre di kasir dan hanya perlu mengambil pesanan ketika sudah siap.
 
