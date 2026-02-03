@@ -29,7 +29,7 @@ if (mysqli_num_rows($result) == 0) {
 
 $user = mysqli_fetch_assoc($result);
 
-if (password_verify($password, $user['password'])) {
+if ($password == $user['password']) {
     echo json_encode([
         "status" => "sukses",
         "message" => "login berhasil",
@@ -46,3 +46,4 @@ if (password_verify($password, $user['password'])) {
         "message" => "password atau username salah"
     ]);
 }
+?>

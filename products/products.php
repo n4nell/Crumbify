@@ -6,12 +6,12 @@ $where = [];
 
 if (isset($_GET['category'])) {
     $category = mysqli_real_escape_string($conn, $_GET['category']);
-    $where[] = "category.name = '$category'";
+    $where[] = "c.name = '$category'"; 
 }
 
 if (isset($_GET['search'])) {
     $search = mysqli_real_escape_string($conn, $_GET['search']);
-    $where[] = "product.name LIKE '%$search%'";
+    $where[] = "p.name LIKE '%$search%'"; 
 }
 
 $sql = "

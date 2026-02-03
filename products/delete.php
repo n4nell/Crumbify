@@ -4,7 +4,6 @@ include "../config/connect.php";
 
 $id = $_POST['id'];
 
-/* Ambil nama gambar dulu */
 $q = mysqli_query($conn, "SELECT image FROM products WHERE id=$id");
 $data = mysqli_fetch_assoc($q);
 

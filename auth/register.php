@@ -37,12 +37,11 @@ if (mysqli_num_rows($cekUsername) > 0) {
     exit;
 }
 
-/* REGISTER PASTI USER */
-$passwordHash = password_hash($password, PASSWORD_DEFAULT);
+/* REGISTER SEBAGAI USER BIASA */
 $role = 'user';
 
 $sql = "INSERT INTO users (email, username, password, role)
-        VALUES ('$email', '$username', '$passwordHash', '$role')";
+        VALUES ('$email', '$username', '$password', '$role')";
 
 if (mysqli_query($conn, $sql)) {
     echo json_encode([
@@ -55,3 +54,4 @@ if (mysqli_query($conn, $sql)) {
         "message" => mysqli_error($conn)
     ]);
 }
+?>
