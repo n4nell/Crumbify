@@ -2,7 +2,6 @@
 header("Content-Type: application/json");
 include "../config/connect.php";
 
-// cek apakah id dikirim
 if (!isset($_GET['id'])) {
     echo json_encode([
         "status" => false,
@@ -11,12 +10,22 @@ if (!isset($_GET['id'])) {
     exit;
 }
 
-$id = $_GET['id'];
+$id = (int) $_GET['id'];
 
-$query = "SELECT * FROM products WHERE id = $id";
-$result = mysqli_query($conn, $query);
+$query = mysqli_query($conn, "
+    SELECT 
+        id,
+        category_id,
+        name,
+        description,
+        price,
+        image,
+        created_at
+    FROM products 
+    WHERE id = $id
+");
 
-if (mysqli_num_rows($result) == 0) {
+if (mysqli_num_rows($query) == 0) {
     echo json_encode([
         "status" => false,
         "message" => "Product not found"
@@ -24,7 +33,7 @@ if (mysqli_num_rows($result) == 0) {
     exit;
 }
 
-$product = mysqli_fetch_assoc($result);
+$product = mysqli_fetch_assoc($query);
 
 echo json_encode([
     "status" => true,
