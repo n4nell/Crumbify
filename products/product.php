@@ -2,7 +2,6 @@
 header("Content-Type: application/json");
 include "../config/connect.php";
 
-// cek apakah id dikirim
 if (!isset($_GET['id'])) {
     echo json_encode([
         "status" => false,
