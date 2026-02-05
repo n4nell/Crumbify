@@ -1,57 +1,63 @@
 <?php
-ini_set('display_errors', 1);
-error_reporting(E_ALL);
+header("Content-Type: application/json");
+include "../config/connect.php";
 
-header('Content-Type: application/json');
-include '../config/connect.php';
-
-$email    = trim($_POST['email']);
-$username = trim($_POST['username']);
-$password = trim($_POST['password']);
-
-if ($email == '' || $username == '' || $password == '') {
+if (
+    !isset($_POST['username']) ||
+    !isset($_POST['name']) ||
+    !isset($_POST['email']) ||
+    !isset($_POST['password'])
+) {
     echo json_encode([
-        "status" => "error",
-        "message" => "email, username, dan password wajib diisi"
+        "status" => false,
+        "message" => "Username, nama, email, dan password wajib diisi"
     ]);
     exit;
 }
 
-/* cek email */
-$cekEmail = mysqli_query($conn, "SELECT id FROM users WHERE email='$email'");
-if (mysqli_num_rows($cekEmail) > 0) {
+$username = mysqli_real_escape_string($conn, $_POST['username']);
+$name     = mysqli_real_escape_string($conn, $_POST['name']);
+$email    = mysqli_real_escape_string($conn, $_POST['email']);
+$password = $_POST['password'];
+
+/* Cek username sudah dipakai atau belum */
+$checkUsername = mysqli_query($conn, "SELECT id FROM users WHERE username = '$username'");
+if (mysqli_num_rows($checkUsername) > 0) {
     echo json_encode([
-        "status" => "error",
-        "message" => "email sudah terdaftar"
+        "status" => false,
+        "message" => "Username sudah digunakan"
     ]);
     exit;
 }
 
-/* cek username */
-$cekUsername = mysqli_query($conn, "SELECT id FROM users WHERE username='$username'");
-if (mysqli_num_rows($cekUsername) > 0) {
+/* (Opsional tapi bagus) Cek email juga */
+$checkEmail = mysqli_query($conn, "SELECT id FROM users WHERE email = '$email'");
+if (mysqli_num_rows($checkEmail) > 0) {
     echo json_encode([
-        "status" => "error",
-        "message" => "username sudah digunakan"
+        "status" => false,
+        "message" => "Email sudah terdaftar"
     ]);
     exit;
 }
 
-/* REGISTER SEBAGAI USER BIASA */
-$role = 'user';
+/* Hash password */
+$hashedPassword = password_hash($password, PASSWORD_DEFAULT);
 
-$sql = "INSERT INTO users (email, username, password, role)
-        VALUES ('$email', '$username', '$password', '$role')";
+/* Simpan user */
+$insert = mysqli_query($conn, "
+    INSERT INTO users (username, name, email, password, created_at)
+    VALUES ('$username', '$name', '$email', '$hashedPassword', NOW())
+");
 
-if (mysqli_query($conn, $sql)) {
+if (!$insert) {
     echo json_encode([
-        "status" => "sukses",
-        "message" => "registrasi user berhasil"
-    ]);
-} else {
-    echo json_encode([
-        "status" => "error",
+        "status" => false,
         "message" => mysqli_error($conn)
     ]);
+    exit;
 }
-?>
+
+echo json_encode([
+    "status" => true,
+    "message" => "Registrasi berhasil"
+]);

@@ -1,49 +1,48 @@
 <?php
-ini_set('display_errors', 1);
-error_reporting(E_ALL);
+header("Content-Type: application/json");
+include "../config/connect.php";
 
-header('Content-Type: application/json');
-include '../config/connect.php';
-
-$username = trim($_POST['username']);
-$password = trim($_POST['password']);
-
-if ($username == '' || $password == '') {
+if (!isset($_POST['username']) || !isset($_POST['password'])) {
     echo json_encode([
-        "status" => "error",
-        "message" => "username dan password wajib diisi"
+        "status" => false,
+        "message" => "Username dan password wajib diisi"
     ]);
     exit;
 }
 
-$sql = "SELECT * FROM users WHERE username='$username' LIMIT 1";
-$result = mysqli_query($conn, $sql);
+$username = mysqli_real_escape_string($conn, $_POST['username']);
+$password = $_POST['password'];
 
-if (mysqli_num_rows($result) == 0) {
+$query = mysqli_query($conn, "
+    SELECT id, username, name, email, password 
+    FROM users 
+    WHERE username = '$username'
+");
+
+if (mysqli_num_rows($query) == 0) {
     echo json_encode([
-        "status" => "error",
-        "message" => "username tidak ditemukan"
+        "status" => false,
+        "message" => "Username tidak ditemukan"
     ]);
     exit;
 }
 
-$user = mysqli_fetch_assoc($result);
+$user = mysqli_fetch_assoc($query);
 
-if ($password == $user['password']) {
+/* Verifikasi password */
+if (!password_verify($password, $user['password'])) {
     echo json_encode([
-        "status" => "sukses",
-        "message" => "login berhasil",
-        "data" => [
-            "id"       => $user['id'],
-            "email"    => $user['email'],
-            "username" => $user['username'],
-            "role"     => $user['role']
-        ]
+        "status" => false,
+        "message" => "Password atau username salah"
     ]);
-} else {
-    echo json_encode([
-        "status" => "error",
-        "message" => "password atau username salah"
-    ]);
+    exit;
 }
-?>
+
+/* Jangan kirim password ke frontend */
+unset($user['password']);
+
+echo json_encode([
+    "status" => true,
+    "message" => "Login berhasil",
+    "user" => $user
+]);

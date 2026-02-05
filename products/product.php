@@ -12,18 +12,30 @@ if (!isset($_GET['id'])) {
 
 $id = (int) $_GET['id'];
 
-$query = mysqli_query($conn, "
+$sql = "
     SELECT 
-        id,
-        category_id,
-        name,
-        description,
-        price,
-        image,
-        created_at
-    FROM products 
-    WHERE id = $id
-");
+        p.id,
+        p.name,
+        p.description,
+        p.price,
+        p.stock,
+        p.image,
+        p.created_at,
+        c.name AS category_name
+    FROM products p
+    JOIN categories c ON p.category_id = c.id
+    WHERE p.id = $id
+";
+
+$query = mysqli_query($conn, $sql);
+
+if (!$query) {
+    echo json_encode([
+        "status" => false,
+        "message" => mysqli_error($conn)
+    ]);
+    exit;
+}
 
 if (mysqli_num_rows($query) == 0) {
     echo json_encode([
