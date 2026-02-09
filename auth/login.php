@@ -11,35 +11,24 @@ if (!isset($_POST['username']) || !isset($_POST['password'])) {
 }
 
 $username = mysqli_real_escape_string($conn, $_POST['username']);
-$password = $_POST['password'];
+$password = mysqli_real_escape_string($conn, $_POST['password']);
 
 $query = mysqli_query($conn, "
-    SELECT id, username, name, email, password 
+    SELECT id, username, name, email 
     FROM users 
-    WHERE username = '$username'
+    WHERE username = '$username' 
+      AND password = '$password'
 ");
 
 if (mysqli_num_rows($query) == 0) {
     echo json_encode([
         "status" => false,
-        "message" => "Username tidak ditemukan"
+        "message" => "Username atau password salah"
     ]);
     exit;
 }
 
 $user = mysqli_fetch_assoc($query);
-
-/* Verifikasi password */
-if (!password_verify($password, $user['password'])) {
-    echo json_encode([
-        "status" => false,
-        "message" => "Password atau username salah"
-    ]);
-    exit;
-}
-
-/* Jangan kirim password ke frontend */
-unset($user['password']);
 
 echo json_encode([
     "status" => true,
