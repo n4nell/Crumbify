@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <style name="Base.Theme.Crumbify" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="android:windowTranslucentStatus">false</item>
+        <item name="android:statusBarColor">@color/maroon</item>
+        <item name="android:windowLightStatusBar" tools:targetApi="m">false</item>
+
+        <item name="android:windowBackground">@android:color/white</item>
+        <item name="colorPrimary">@color/maroon</item>
+        <item name="colorSecondary">@color/maroon</item>
+        <item name="colorSurface">@android:color/white</item>
+    </style>
+
+    <style name="Theme.Crumbify" parent="Base.Theme.Crumbify" />
+
+    <style name="MyTabTextAppearance" parent="TextAppearance.Design.Tab">
+        <item name="android:textSize">12sp</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="MyTabLayoutTheme">
+        <item name="colorPrimary">@color/light_maroon</item>
+    </style>
+</resources>

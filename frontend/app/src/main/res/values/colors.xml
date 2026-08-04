@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="light_cream">#FFF4DC</color>
+    <color name="dark_cream">#FFEBC1</color>
+    <color name="cream">#FFEBBF</color>
+    <color name="bright_cream">#FFF0D0</color>
+    <color name="maroon">#730710</color>
+    <color name="light_maroon">#C12C39</color>
+    <color name="brown">#8F6200</color>
+    <color name="light_brown">#BA7F00</color>
+    <color name="red">#B62532</color>
+    <color name="light_red">#E42E3D</color>
+</resources>
